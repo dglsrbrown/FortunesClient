@@ -1,0 +1,8 @@
+.flexbox-1 {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.test {
+  color: red;
+}
