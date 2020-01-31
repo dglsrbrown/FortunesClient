@@ -55,10 +55,13 @@ const SaveMyFortune = props => {
     fetch(`http://localhost:4000/fortunes/${props.urlending}`, {
       method: method,
       body: JSON.stringify({
-        fortune: fortune,
-        luckNumber: luckyNumber,
-        class: classtype,
-        notes: notes
+        fortune: props.update && fortune == '' ? props.savedFortune : fortune,
+        luckNumber:
+          props.update && luckyNumber == ''
+            ? props.savedLuckyNumber
+            : luckyNumber,
+        class: props.update && classtype == '' ? props.savedType : classtype,
+        notes: props.update && notes == '' ? props.savedNote : notes
       }),
       headers: new Headers({
         'Content-Type': 'application/json',
@@ -78,10 +81,7 @@ const SaveMyFortune = props => {
         props.reset();
       });
   };
-  /******** RESET FETCH ******/
-  // const resetFetch = () =>{
 
-  // }
   return (
     <div>
       <header style={{ textAlign: 'center' }}>
@@ -98,7 +98,9 @@ const SaveMyFortune = props => {
                 <Input
                   name='fortune'
                   value={fortune}
-                  placeholder='Your Fortune'
+                  placeholder={
+                    props.update ? props.savedFortune : 'Your Fortune'
+                  }
                   onChange={e => setFortune(e.target.value)}
                 />
               </FormGroup>
@@ -107,7 +109,7 @@ const SaveMyFortune = props => {
                 <Input
                   name=''
                   value={luckyNumber}
-                  placeholder='Your Lucky#'
+                  placeholder={props.update ? props.savedLuckyNumber : 'Lucky#'}
                   onChange={e => setLuckNumber(e.target.value)}
                 />
               </FormGroup>
@@ -117,10 +119,12 @@ const SaveMyFortune = props => {
                   type='select'
                   name='classtype'
                   value={classtype}
-                  placeholder='Fortune Type?'
+                  // placeholder={props.update ? props.savedType : 'Fortuitous'}
                   onChange={e => setClasstype(e.target.value)}
                 >
-                  <option value=''></option>
+                  <option value='' disabled selected hidden>
+                    {props.update ? props.savedType : 'Choose...'}
+                  </option>
                   <option value='Fortuitous'>Fortuitous</option>
                   <option value='Ominous'>Ominous</option>
                   <option value='Nebulous'>Nebulous</option>
@@ -134,7 +138,7 @@ const SaveMyFortune = props => {
                   type='textarea'
                   name='text'
                   value={notes}
-                  placeholder='Any Notes?'
+                  placeholder={props.update ? props.savedNote : 'Any Notes?'}
                   onChange={e => setNotes(e.target.value)}
                 />
               </FormGroup>

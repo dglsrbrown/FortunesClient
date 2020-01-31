@@ -9,6 +9,17 @@ import FortunesIndex from './components/myfortunes/FortunesIndex';
 function App() {
   const [sessionToken, setSessionToken] = useState('');
 
+  const [toggleSignup, setToggleSignup] = useState(false);
+
+  const loginORSignup = () => {
+    console.log('toggleSignup: ', toggleSignup);
+    if (toggleSignup == false) {
+      setToggleSignup(true);
+    } else {
+      setToggleSignup(false);
+    }
+  };
+
   useEffect(() => {
     if (localStorage.getItem('token')) {
       setSessionToken(localStorage.getItem('token'));
@@ -39,13 +50,18 @@ function App() {
     return sessionToken === localStorage.getItem('token') ? (
       <FortunesIndex token={sessionToken} />
     ) : (
-      <Auth updateToken={updateToken} />
+      <Auth updateToken={updateToken} toggleSignup={toggleSignup} />
     );
   };
 
   return (
-    <div className='App'>
-      <Navbar clickLogout={clearToken} logoutDisplay={logoutDisplay} />
+    <div className='App bg'>
+      <Navbar
+        clickLogout={clearToken}
+        logoutDisplay={logoutDisplay}
+        toggleSignup={toggleSignup}
+        loginORSignup={loginORSignup}
+      />
       {/* <Auth updateToken={updateToken} /> */}
       {protectedViews()}
     </div>

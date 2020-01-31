@@ -14,15 +14,18 @@ import {
 const FortunesList = props => {
   // console.log(props);
   return (
-    <div>
-      <CardBody>
+    <div className=''>
+      <CardBody className=''>
         {/* {console.log(props.fortunesToMap.id)} */}
-        <CardTitle>{props.fortunesToMap.fortune}</CardTitle>
+        <CardTitle className='bg-primary'>
+          {props.fortunesToMap.fortune}
+        </CardTitle>
         <CardText>{props.fortunesToMap.luckNumber}</CardText>
         <CardText>{props.fortunesToMap.class}</CardText>
         <CardText>{props.fortunesToMap.notes}</CardText>
         <ButtonGroup>
           <Button
+            href='#'
             value={props.fortunesToMap.id}
             onClick={e => props.updater(props.fortunesToMap)}
           >

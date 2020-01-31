@@ -28,7 +28,7 @@ const Navigation = props => {
         <NavbarBrand>
           <i className='fas fa-cookie-bite'>My Fortune Cookie Fortune</i>
         </NavbarBrand>
-        <NavbarToggler onClick={toggleNavbar} className='mr-2' />
+        {/* <NavbarToggler onClick={toggleNavbar} className='mr-2' />
         <Collapse isOpen={!collapsed} navbar>
           <Nav navbar>
             <NavItem>
@@ -47,7 +47,16 @@ const Navigation = props => {
               )}
             </NavItem>
           </Nav>
-        </Collapse>
+        </Collapse> */}
+        <NavbarBrand>
+          {props.logoutDisplay() ? (
+            <Button onClick={props.clickLogout}>
+              <i className='fas fa-door-open'></i>
+            </Button>
+          ) : (
+            <Button onClick={() => props.loginORSignup()}>Signup/Login</Button>
+          )}
+        </NavbarBrand>
       </Navbar>
     </div>
   );

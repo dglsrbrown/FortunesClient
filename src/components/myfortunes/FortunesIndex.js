@@ -8,6 +8,11 @@ const FortuneIndex = props => {
   const [update, setUpdate] = useState(false);
   const [urlending, setURLending] = useState('');
 
+  const [savedFortune, setSavedFortune] = useState();
+  const [savedLuckyNumber, setsavedLuckyNumber] = useState();
+  const [savedType, setsavedType] = useState();
+  const [savedNote, setsavedNote] = useState();
+
   /****** Fetch All User Fortunes ******/
   const fetchFortunes = () => {
     fetch('http://localhost:4000/fortunes/all', {
@@ -33,7 +38,7 @@ const FortuneIndex = props => {
   const fortuneMapper = () => {
     return fortunes.map((fortuneInfo, index) => {
       return (
-        <Card key={index} className='cardName'>
+        <Card key={index} className='cardName mb-4'>
           <FortunesList
             fortunesToMap={fortuneInfo}
             deleteFortunes={deleteFortunes}
@@ -62,7 +67,22 @@ const FortuneIndex = props => {
   const upDater = updateStatus => {
     setUpdate(true);
     setURLending(updateStatus.id);
-    console.log(updateStatus.id);
+    setSavedFortune(updateStatus.fortune);
+    setsavedLuckyNumber(updateStatus.luckNumber);
+    setsavedType(updateStatus.class);
+    setsavedNote(updateStatus.notes);
+    console.log(
+      'id: ',
+      updateStatus.id,
+      ' fortune: ',
+      updateStatus.fortune,
+      ' luckyNumber: ',
+      updateStatus.luckNumber,
+      ' fortuneType: ',
+      updateStatus.class,
+      ' Notes: ',
+      updateStatus.notes
+    );
   };
 
   const Reset = () => {
@@ -78,11 +98,13 @@ const FortuneIndex = props => {
           <SaveMyFortune
             fetchFortunes={fetchFortunes}
             token={props.token}
-            // method={method}
             urlending={urlending}
-            // header={header}
             update={update}
             reset={Reset}
+            savedFortune={savedFortune}
+            savedLuckyNumber={savedLuckyNumber}
+            savedType={savedType}
+            savedNote={savedNote}
           />
         </Col>
         <Col md='8'>
