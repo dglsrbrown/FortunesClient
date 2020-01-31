@@ -9,6 +9,8 @@ import {
   Input,
   Button
 } from 'reactstrap';
+import APIURL from '../../helpers/environment'
+
 
 const SaveMyFortune = props => {
   const [fortune, setFortune] = useState('');
@@ -52,7 +54,7 @@ const SaveMyFortune = props => {
       'Update value: ',
       props.update
     );
-    fetch(`http://localhost:4000/fortunes/${props.urlending}`, {
+    fetch(`${APIURL}/fortunes/${props.urlending}`, {
       method: method,
       body: JSON.stringify({
         fortune: props.update && fortune == '' ? props.savedFortune : fortune,

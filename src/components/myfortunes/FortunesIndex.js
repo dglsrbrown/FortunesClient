@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Card } from 'reactstrap';
 import SaveMyFortune from './SaveMyFortune';
 import FortunesList from './FortunesList';
+import APIURL from '../../helpers/environment'
+
 
 const FortuneIndex = props => {
   const [fortunes, setFortunes] = useState([]);
@@ -15,7 +17,7 @@ const FortuneIndex = props => {
 
   /****** Fetch All User Fortunes ******/
   const fetchFortunes = () => {
-    fetch('http://localhost:4000/fortunes/all', {
+    fetch(`${APIURL}/fortunes/all`, {
       method: 'GET',
       headers: new Headers({
         'Content-Type': 'application/json',
@@ -53,7 +55,7 @@ const FortuneIndex = props => {
   /****** Delete User Fortunes ******/
 
   const deleteFortunes = fortuneInfo => {
-    fetch(`http://localhost:4000/fortunes/${fortuneInfo.id}`, {
+    fetch(`${APIURL}/fortunes/${fortuneInfo.id}`, {
       method: 'DELETE',
       headers: new Headers({
         'Content-Type': 'application/json',
