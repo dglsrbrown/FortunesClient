@@ -1,8 +1,50 @@
 .App {
   min-height: 100vh;
+  color: #afa5a5;
+  text-shadow: 2px 2px 5px #ff0000;
 }
 html {
   scroll-behavior: smooth;
+}
+
+:root {
+  --primary-color: #dc3545;
+  --dark-color: #333333;
+  --light-color: #f4f4f4;
+  --danger-color: #dc3545;
+  --success-color: #28a745;
+}
+
+.nav-main {
+  background: var(--dark-color) !important;
+  color: var(--light-color) !important;
+}
+
+.app-controls {
+  background: transparent;
+  color: var(--light-color) !important;
+}
+
+.footer-main {
+  background: var(--dark-color) !important;
+  color: var(--light-color) !important;
+}
+
+i {
+  color: #afa5a5;
+  text-shadow: 2px 2px 4px #ff0000;
+}
+
+input[type='text'] {
+  background: rgb(254, 247, 245, 0.4);
+  border: 3px double #ff0000;
+  color: #ff0000;
+}
+
+.input-primary {
+  background: rgb(254, 247, 245, 0.4) !important;
+  border: 3px double #ff0000 !important;
+  color: #ff0000 !important;
 }
 
 html,
@@ -11,16 +53,38 @@ body {
 }
 
 .bg {
-  background-color: gray;
+  /* background-color: gray; */
 
   /* The image used */
-  /* background-image: url('https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(11).jpg'); */
+  background-image: url('assets/splash.jpg');
 
   /* Half height */
   height: 100%;
 
   /* Center and scale the image nicely */
-  /* background-position: center; */
+  background-position: center;
   background-repeat: repeat;
   background-size: cover;
+}
+
+.card {
+  background-color: rgb(254, 247, 245, 0.4) !important;
+  display: flex;
+}
+
+.button-styles {
+  background: rgb(254, 247, 245, 0.4) !important;
+  border: 3px double #ff0000 !important;
+  /* -webkit-transition-duration: 0.8s; 
+  transition-duration: 0.8s; */
+  color: #afa5a5;
+  text-shadow: 2px 2px 5px #ff0000;
+}
+
+.button-styles:hover {
+  background: rgba(247, 163, 137, 0.4) !important;
+}
+
+button:hover {
+  background: rgba(247, 163, 137, 0.4) !important;
 }

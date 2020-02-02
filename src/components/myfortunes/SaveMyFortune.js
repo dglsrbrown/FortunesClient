@@ -9,8 +9,7 @@ import {
   Input,
   Button
 } from 'reactstrap';
-import APIURL from '../../helpers/environment'
-
+import APIURL from '../../helpers/environment';
 
 const SaveMyFortune = props => {
   const [fortune, setFortune] = useState('');
@@ -118,13 +117,16 @@ const SaveMyFortune = props => {
               <FormGroup>
                 <Label htmlFor='classtype'>Select Type</Label>
                 <Input
+                  className='input-primary'
+                  // style = {{background: "rgb(254, 247, 245, 0.4)" }}
                   type='select'
                   name='classtype'
                   value={classtype}
                   // placeholder={props.update ? props.savedType : 'Fortuitous'}
                   onChange={e => setClasstype(e.target.value)}
                 >
-                  <option value='' disabled selected hidden>
+                  {/* disabled selected hidden - had this below after value='' but got warnings for it*/}
+                  <option value=''>
                     {props.update ? props.savedType : 'Choose...'}
                   </option>
                   <option value='Fortuitous'>Fortuitous</option>
@@ -137,6 +139,7 @@ const SaveMyFortune = props => {
               <FormGroup>
                 <Label htmlFor='notes'>Notes</Label>
                 <Input
+                  className='input-primary'
                   type='textarea'
                   name='text'
                   value={notes}

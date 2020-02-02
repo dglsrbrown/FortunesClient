@@ -5,12 +5,24 @@ import Navbar from './components/layout/Navbar';
 import Auth from './components/auth/Auth';
 // import Fortune from './components/myfortunes/SaveMyFortune';
 import FortunesIndex from './components/myfortunes/FortunesIndex';
-import { BrowserRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom'; // ROUTER madness!!!!!!!!!!!!
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch,
+  Redirect
+} from 'react-router-dom'; // ROUTER madness!!!!!!!!!!!!
+import Landing from './components/landing/LandingPage';
 
 function App() {
   const [sessionToken, setSessionToken] = useState('');
 
   const [toggleSignup, setToggleSignup] = useState(false);
+  const [landing, setLanding] = useState(true);
+
+  const toggleLanding = () => {
+    setLanding(!landing);
+  };
 
   const loginORSignup = () => {
     console.log('toggleSignup: ', toggleSignup);
@@ -48,42 +60,36 @@ function App() {
   };
 
   const protectedViews = () => {
-    return sessionToken === localStorage.getItem('token') ? (
-      
-          // <Route exact path= '/fortunes' component={FortunesIndex}>
-
-          <FortunesIndex token={sessionToken} />
-
-
-          // </Route>
-      
-    ) : (
-     
-          // <Route exact path= '/sigin' component={updateToken}>
-
-          <Auth updateToken={updateToken} toggleSignup={toggleSignup} />
-
-
-          // </Route>
-     
-    );
+    if (landing) {
+      return <Landing toggleLanding={toggleLanding} />;
+    } else {
+      return sessionToken === localStorage.getItem('token') ? (
+        <FortunesIndex token={sessionToken} />
+      ) : (
+        <Auth
+          updateToken={updateToken}
+          toggleSignup={toggleSignup}
+          toggleLanding={toggleLanding}
+          landing={landing}
+        />
+      );
+    }
   };
 
   return (
     <div className='App bg'>
-      
-      
-
       <Navbar
         clickLogout={clearToken}
         logoutDisplay={logoutDisplay}
         toggleSignup={toggleSignup}
         loginORSignup={loginORSignup}
+        toggleLanding={toggleLanding}
+        landing={landing}
       />
-      {/* <Router> */}
+
       {/* <Auth updateToken={updateToken} /> */}
       {protectedViews()}
-      {/* </Router> */}
+      {/* <protectedViews /> */}
     </div>
   );
 }

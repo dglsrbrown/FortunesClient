@@ -5,6 +5,27 @@ import APIURL from '../../helpers/environment';
 const Signup = props => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const pattern = /[0-9]|[^\w]/;
+
+  const formValidation = event => {
+    event.preventDefault();
+
+    if (
+      password.length >= 5 &&
+      pattern.test(username) &&
+      username.length >= 4
+    ) {
+      handle(event);
+      console.log('Form Validated!');
+    } else {
+      setUsername('');
+      setPassword('');
+      console.log('Sign up check - landing value: ', props.landing);
+      alert(
+        'Username and or Password Error: username must be 4 or more characters and have at least one number or symobl. Password must be 5 or more characters.'
+      );
+    }
+  };
 
   const handle = event => {
     event.preventDefault();
@@ -30,7 +51,7 @@ const Signup = props => {
   return (
     <div className='signiup-root'>
       <h1>Sign Up</h1>
-      <Form onSubmit={handle}>
+      <Form onSubmit={formValidation}>
         <FormGroup>
           <Label htmlFor='username'>Username</Label>
           <Input

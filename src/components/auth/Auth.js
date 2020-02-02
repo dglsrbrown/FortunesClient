@@ -21,7 +21,13 @@ const Auth = props => {
   const loginToggle = () => {
     console.log('toggle check: ', props.toggleSignup);
     if (props.toggleSignup === false) {
-      return <Signup updateToken={props.updateToken} />;
+      return (
+        <Signup
+          updateToken={props.updateToken}
+          toggleLanging={props.toggleLanging}
+          landing= {props.landing}
+        />
+      );
     } else {
       // setToggle(false);
       return <Login updateToken={props.updateToken} />;
