@@ -147,7 +147,7 @@ const SaveMyFortune = props => {
                   onChange={e => setNotes(e.target.value)}
                 />
               </FormGroup>
-              <Button type='submit'>Submit</Button>
+              <Button className= 'button-styles' type='submit'>Submit</Button>
             </Form>
           </Col>
         </Row>

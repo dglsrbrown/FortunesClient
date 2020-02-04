@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Card } from 'reactstrap';
 import SaveMyFortune from './SaveMyFortune';
 import FortunesList from './FortunesList';
-import APIURL from '../../helpers/environment'
-
+import APIURL from '../../helpers/environment';
 
 const FortuneIndex = props => {
   const [fortunes, setFortunes] = useState([]);
@@ -39,8 +38,15 @@ const FortuneIndex = props => {
 
   const fortuneMapper = () => {
     return fortunes.map((fortuneInfo, index) => {
+      console.log("The mapped fortune's class: ", fortuneInfo.class);
+      // let currentCardBG;
+      // let currentclasses;
+      // if (fortuneInfo.class == 'Auspicious') {
+      //   currentCardBG = 'fortune-bg-1';
+      //   currentclasses = `${currentCardBG} cardName mb-4`;
+      // }
       return (
-        <Card key={index} className='cardName mb-4'>
+        <Card key={index} >
           <FortunesList
             fortunesToMap={fortuneInfo}
             deleteFortunes={deleteFortunes}

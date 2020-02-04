@@ -1,5 +1,14 @@
 import React, { useState } from 'react';
-import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import {
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  Button,
+  UncontrolledPopover,
+  PopoverHeader,
+  PopoverBody
+} from 'reactstrap';
 import APIURL from '../../helpers/environment';
 
 const Signup = props => {
@@ -50,7 +59,11 @@ const Signup = props => {
 
   return (
     <div className='signiup-root'>
-      <h1>Sign Up</h1>
+      <div className='app-controls'>
+        <h1 className=' text'>
+          Sign Up<span id='PopoverFocus'> *</span>
+        </h1>
+      </div>
       <Form onSubmit={formValidation}>
         <FormGroup>
           <Label htmlFor='username'>Username</Label>
@@ -68,8 +81,22 @@ const Signup = props => {
             value={password}
           />
         </FormGroup>
-        <Button type='submit'>Signup</Button>
+        <Button className='button-styles' type='submit'>
+          Signup
+        </Button>
       </Form>
+
+      <UncontrolledPopover
+        trigger='hover'
+        placement='right'
+        target='PopoverFocus'
+      >
+        {/* <PopoverHeader className>Focus Trigger</PopoverHeader> */}
+        <PopoverBody className='black-trs' color ='gray'>
+          Username must be a minimum of 4 characters and have at least one number
+          or symbol. Passwords must be a minimum of 5 characters.
+        </PopoverBody>
+      </UncontrolledPopover>
     </div>
   );
 };

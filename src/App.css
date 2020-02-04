@@ -1,23 +1,89 @@
 .App {
   min-height: 100vh;
-  color: #afa5a5;
-  text-shadow: 2px 2px 5px #ff0000;
+  color: var(--light-color);
+  text-shadow: 2px 2px 5px var(--neon-red);
+  font-family: 'Quattrocento', serif;
 }
 html {
   scroll-behavior: smooth;
 }
 
+body {
+  font-family: 'Quattrocento', serif;
+}
+
+.text {
+  color: var(--light-color);
+  text-shadow: 2px 2px 5px var(--neon-red) !important;
+}
+
+.transparent-bg {
+  background: rgb(254, 247, 245, 0.4) !important;
+}
+/************* fortunes page ************/
+/* 
+.fpage-bg {
+  background-image: url('assets/cards.jpg');
+  height: 100vh;
+  width: 100%;
+
+  background-position: center;
+  background-repeat: repeat;
+  background-size: cover;
+}
+
+.black-trs {
+  color: var(--neon-dark);
+  text-shadow: 2px 2px 5px var(--neon-red);
+}
+
+.button-styles2 {
+  background: rgb(254, 247, 245, 0.4) !important;
+  border: 3px double var(--neon-red) !important;
+  
+  border-radius: 8px;
+  color: var(--neon-dark);
+  text-shadow: 2px 2px 5px var(--neon-red);
+} 
+*/
+/************** About Page ************/
+.about-bg {
+  background-image: url('assets/about.jpg');
+  height: 100vh;
+  width: 100%;
+
+  background-position: center;
+  background-repeat: repeat;
+  background-size: cover;
+}
+
+.about-text {
+  color: var(--neon-dark);
+}
+
+.trans-bg {
+  background-color: rgb(254, 247, 245, 0.8) !important;
+}
+
+/* color variables */
 :root {
   --primary-color: #dc3545;
   --dark-color: #333333;
   --light-color: #f4f4f4;
   --danger-color: #dc3545;
   --success-color: #28a745;
+  --neon-dark: #252525;
+  --neon-red: rgb(255, 0, 0);
+  --neon-darkred: #af0404;
+  --neon-gray: #414141;
+  --mute-white: #f2f4f6;
 }
 
 .nav-main {
-  background: var(--dark-color) !important;
+  background: var(--neon-dark) !important;
   color: var(--light-color) !important;
+  height: 11vh;
+  width: auto;
 }
 
 .app-controls {
@@ -26,41 +92,39 @@ html {
 }
 
 .footer-main {
-  background: var(--dark-color) !important;
+  background: var(--neon-dark) !important;
   color: var(--light-color) !important;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 i {
-  color: #afa5a5;
-  text-shadow: 2px 2px 4px #ff0000;
+  color: var(--light-color);
+  text-shadow: 2px 2px 4px var(--neon-red);
 }
 
 input[type='text'] {
-  background: rgb(254, 247, 245, 0.4);
-  border: 3px double #ff0000;
-  color: #ff0000;
+  background: rgb(254, 247, 245, 0.8);
+  border: 3px double var(--neon-red);
+  color: var(--neon-red);
 }
 
 .input-primary {
-  background: rgb(254, 247, 245, 0.4) !important;
-  border: 3px double #ff0000 !important;
-  color: #ff0000 !important;
+  background: rgb(254, 247, 245, 0.8) !important;
+  border: 3px double var(--neon-red) !important;
+  color: var(--neon-red) !important;
 }
 
-html,
+/* html,
 body {
   height: 100vh;
-}
-
+} */
 .bg {
   /* background-color: gray; */
-
-  /* The image used */
-  background-image: url('assets/splash.jpg');
-
-  /* Half height */
-  height: 100%;
-
+  background-image: url('assets/graySplash.jpg');
+  height: auto;
+  width: auto;
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: repeat;
@@ -68,23 +132,49 @@ body {
 }
 
 .card {
-  background-color: rgb(254, 247, 245, 0.4) !important;
+  background-color: rgb(254, 247, 245, 0.5) !important;
   display: flex;
+}
+.card-button {
+  width: 33%;
+  height: auto;
+  border-radius: 8px;
 }
 
 .button-styles {
-  background: rgb(254, 247, 245, 0.4) !important;
-  border: 3px double #ff0000 !important;
+  background: rgb(254, 247, 245, 0.8) !important;
+  border: 3px double var(--neon-red) !important;
   /* -webkit-transition-duration: 0.8s; 
   transition-duration: 0.8s; */
-  color: #afa5a5;
-  text-shadow: 2px 2px 5px #ff0000;
+  color: var(--light-color);
+  text-shadow: 2px 2px 5px var(--neon-red);
 }
 
 .button-styles:hover {
-  background: rgba(247, 163, 137, 0.4) !important;
+  background: rgba(247, 163, 137, 0.8) !important;
 }
 
 button:hover {
   background: rgba(247, 163, 137, 0.4) !important;
+}
+
+.fortune-bg-1 {
+  background-image: url('assets/card1.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.link {
+  color: var(--mute-white) !important;
+}
+
+.flex-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
 }

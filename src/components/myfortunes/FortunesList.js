@@ -22,20 +22,20 @@ const FortunesList = props => {
       <CardText className='m-auto'>{props.fortunesToMap.class}</CardText>
       <CardText className='m-auto'>{props.fortunesToMap.notes}</CardText>
       {/* <ButtonGroup > */}
-      <Button
-        className='button-styles'
+      <button
+        className='card-button button-styles ml-auto mr-auto mb-1'
         href='#'
         value={props.fortunesToMap.id}
         onClick={e => props.updater(props.fortunesToMap)}
       >
         Update
-      </Button>
-      <Button
-        className='button-styles'
+      </button>
+      <button
+        className=' card-button button-styles ml-auto mr-auto mb-1'
         onClick={e => props.deleteFortunes(props.fortunesToMap, e.target.value)}
       >
         Delete
-      </Button>
+      </button>
       {/* </ButtonGroup> */}
     </div>
   );

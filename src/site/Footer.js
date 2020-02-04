@@ -3,9 +3,9 @@ import { Row } from 'reactstrap';
 
 const Footer = () => {
   return (
-    <footer>
-      <Row className='footer-main'>
-        <p> &copy; Eleven Fifty 2018</p>
+    <footer className = 'footer-main m-0 p-0'>
+      <Row className= 'm-0 p-0'>
+        <p className ='m-1'> &copy; Eleven Fifty 2018</p>
       </Row>
     </footer>
   );

@@ -1,38 +1,47 @@
 import React from 'react';
 import { Route, Link, Switch } from 'react-router-dom';
-import Home from '../App';
+import Account from '../App';
 import Fortunes from '../site/Fortunes';
 import About from '../site/About';
-import './Header.css';
+import Home from '../site/Home';
+// import './Header.css';
+// import '../assets/logo.png';
 
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 
 const Header = () => {
   return (
-    <div className='header '>
-      <div className='nav-main'>
-        {/* <ul className='sidebar-list list-unstyled'>
-          <li> */}
-        <Link className='link' to='/'>
-          Home
-        </Link>
-        {/* </li>
-          <li> */}
-        <Link className='link' to='/fortunes'>
-          Fortunest
-        </Link>
-        {/* </li>
-          <li> */}
-        <Link className='link' to='/about'>
-          About
-        </Link>
-        {/* </li>
-        </ul> */}
+    <div>
+      <div className='nav-main flex-box'>
+        <div className='m-1'>
+          {/* <i className='fas fa-cookie-bite ml-2 mr-2'></i>
+           */}
+          <h4>My Fortune Cookie Fortune</h4>
+        </div>
+        <div className='m-1'>
+          <Link className='link ml-1' to='/'>
+            Home
+          </Link>
+          <Link className='link ml-3' to='/account'>
+            Account
+          </Link>
+
+          <Link className='link ml-3' to='/fortunes'>
+            Your Future
+          </Link>
+
+          <Link className='link ml-3 mr-2' to='/about'>
+            About
+          </Link>
+        </div>
       </div>
-      <div className='sidebar-route'>
+      <div>
         <Switch>
           <Route exact path='/'>
             <Home />
+          </Route>
+          <Route exact path='/account'>
+            <Account />
           </Route>
           <Route exact path='/fortunes'>
             <Fortunes />

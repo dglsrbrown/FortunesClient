@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Button } from 'reactstrap';
-import '../../assets/intro.mp3';
+
 
 const LandingPage = props => {
-
-
-  
-  
+  // const playit = () => {
+  //   setTimeout(() => {
+  //     return (
+       
+  //     );
+  //   }, 500);
+  // };
 
   return (
     <div>
-      {/* <audio ref='audio_tag' src='../../assets/intro.mp3' controls autoPlay/> */}
-      <div className='row justify-content-center align-itmes-center'>
+      {/* {playit()} */}
+      
+      <div className='row justify-content-center m-0 p-0'>
         <h2>TEST LANDING PAGE</h2>
       </div>
 

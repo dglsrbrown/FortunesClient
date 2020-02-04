@@ -13,6 +13,8 @@ import {
   Redirect
 } from 'react-router-dom'; // ROUTER madness!!!!!!!!!!!!
 import Landing from './components/landing/LandingPage';
+import soundfile from './assets/intro.mp3';
+import Sound from 'react-sound';
 
 function App() {
   const [sessionToken, setSessionToken] = useState('');
@@ -86,7 +88,14 @@ function App() {
         toggleLanding={toggleLanding}
         landing={landing}
       />
-
+      <Sound
+        url={soundfile}
+        playStatus={Sound.status.PLAYING}
+        // playFromPosition={300 /* in milliseconds */}
+        // onLoading={this.handleSongLoading}
+        // onPlaying={this.handleSongPlaying}
+        // onFinishedPlaying={this.handleSongFinishedPlaying}
+      />
       {/* <Auth updateToken={updateToken} /> */}
       {protectedViews()}
       {/* <protectedViews /> */}
