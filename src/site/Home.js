@@ -1,35 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './Home.css';
-import soundfile from '../assets/intro.mp3';
-import Sound from 'react-sound';
-const Home = props => {
-  const [value, setvalue] = useState('STOPPED');
 
+const Home = props => {
   return (
     <div className='bg-home row justify-content-center '>
       <div className='trans-bg col-6 text-center mh-100'>
         <h1>Welcome</h1>
+        <h3 className='blinking'>Take Hold of Your Future!</h3>
+        <h5>
+          Our psychic Coders are hard at work melding magic and megabytes.
+        </h5>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
-          illum quae nobis est aliquid temporibus ea quas, repellendus molestias
-          repellat, dolore alias accusamus maiores, ducimus accusantium cum at
-          dicta. Eos sunt fugiat soluta veritatis quod laborum autem id magnam
-          pariatur.
+          <strong>Fortune cookie fortunes</strong> are the proverbial desert
+          after the cookie itself. At times a few fortunes are found with
+          uncanny accuracy. We envite you to here{' '}
+          <strong>
+            <u>save those fated fortunes</u>
+          </strong>{' '}
+          along with a few notes for future divination.
+        </p>
+        <p>
+          Here at Fortune Cookie Fortune your future is our business.{' '}
+          <mark>
+            Look for future updates where for only $1.99 you can guarantee your
+            good fortune.
+          </mark>
         </p>
       </div>
 
-      {/* {playIt()} */}
-
-      <div>
-        <Sound
-          url={soundfile}
-          playStatus={Sound.status[value]}
-          //   playFromPosition={300 /* in milliseconds */}
-          //     onLoading={setvalue('PLAYING')}
-          //   onPlaying={this.handleSongPlaying}
-          //   onFinishedPlaying={this.handleSongFinishedPlaying}
-        />
-      </div>
+      <div></div>
     </div>
   );
 };

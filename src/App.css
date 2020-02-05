@@ -1,11 +1,24 @@
 .App {
   min-height: 100vh;
   color: var(--light-color);
-  text-shadow: 2px 2px 5px var(--neon-red);
+  /* text-shadow: 2px 2px 5px var(--neon-red); */
   font-family: 'Quattrocento', serif;
 }
 html {
   scroll-behavior: smooth;
+}
+
+.label {
+  text-shadow: 2px 2px 6px var(--neon-dark);
+  font-size: 1.3em;
+}
+
+.red-shadow {
+  text-shadow: 2px 2px 5px var(--neon-red);
+}
+
+.black-shadow {
+  text-shadow: 2px 2px 6px var(--neon-dark);
 }
 
 body {
@@ -18,34 +31,13 @@ body {
 }
 
 .transparent-bg {
-  background: rgb(254, 247, 245, 0.4) !important;
-}
-/************* fortunes page ************/
-/* 
-.fpage-bg {
-  background-image: url('assets/cards.jpg');
-  height: 100vh;
-  width: 100%;
-
-  background-position: center;
-  background-repeat: repeat;
-  background-size: cover;
+  background: rgb(254, 247, 245, 0.8) !important;
 }
 
-.black-trs {
-  color: var(--neon-dark);
-  text-shadow: 2px 2px 5px var(--neon-red);
+.trans-bg-light {
+  background: rgb(254, 247, 245, 0.7) !important;
 }
 
-.button-styles2 {
-  background: rgb(254, 247, 245, 0.4) !important;
-  border: 3px double var(--neon-red) !important;
-  
-  border-radius: 8px;
-  color: var(--neon-dark);
-  text-shadow: 2px 2px 5px var(--neon-red);
-} 
-*/
 /************** About Page ************/
 .about-bg {
   background-image: url('assets/about.jpg');
@@ -58,7 +50,7 @@ body {
 }
 
 .about-text {
-  color: var(--neon-dark);
+  color: var(--neon-dark) !important;
 }
 
 .trans-bg {
@@ -108,11 +100,13 @@ input[type='text'] {
   background: rgb(254, 247, 245, 0.8);
   border: 3px double var(--neon-red);
   color: var(--neon-red);
+  border-radius: 0 !important;
 }
 
 .input-primary {
   background: rgb(254, 247, 245, 0.8) !important;
   border: 3px double var(--neon-red) !important;
+  border-radius: 0 !important;
   color: var(--neon-red) !important;
 }
 
@@ -132,13 +126,14 @@ body {
 }
 
 .card {
-  background-color: rgb(254, 247, 245, 0.5) !important;
+  font-size: 1.2em;
+  background-color: rgb(254, 247, 245, 0.7) !important;
   display: flex;
 }
 .card-button {
   width: 33%;
   height: auto;
-  border-radius: 8px;
+  /* border-radius: 8px; */
 }
 
 .button-styles {
@@ -148,6 +143,7 @@ body {
   transition-duration: 0.8s; */
   color: var(--light-color);
   text-shadow: 2px 2px 5px var(--neon-red);
+  border-radius: 0 !important;
 }
 
 .button-styles:hover {
@@ -158,12 +154,6 @@ button:hover {
   background: rgba(247, 163, 137, 0.4) !important;
 }
 
-.fortune-bg-1 {
-  background-image: url('assets/card1.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-}
 
 .link {
   color: var(--mute-white) !important;

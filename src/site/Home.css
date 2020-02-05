@@ -2,7 +2,7 @@
   /* background-color: gray; */
   background-image: url('../assets/graySplash.jpg');
   height: 100vh;
-  
+
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: repeat;
@@ -11,10 +11,19 @@
 
 body {
   font-family: 'Quattrocento', serif;
-
 }
 
-.trans-bg{
-  background-color: rgb(254, 247, 245, 0.8) !important;
+.trans-bg {
+  background-color: rgb(254, 247, 245, 0.9) !important;
+}
 
+.blinking{
+  animation:blinkingText 1.2s infinite;
+}
+@keyframes blinkingText{
+  0%{     color:var(--neon-dark) !important   }
+  49%{    color:var(--neon-dark) !important}
+  70%{    color: transparent; }
+  97%{    color:transparent;  }
+  100%{   color:var(--neon-dark) !important   }
 }

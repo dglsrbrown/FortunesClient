@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
-import APIURL from '../../helpers/environment'
+import APIURL from '../../helpers/environment';
 
 const Login = props => {
   const [username, setUsername] = useState('');
@@ -23,28 +23,35 @@ const Login = props => {
   };
 
   return (
-
     // style={{ display: 'none' }}
-    <div className='login-root' >
-      <h1>Login</h1>
+    <div className='login-root'>
+      <h1 className='black-shadow'>Login</h1>
       <Form onSubmit={handleSubmit}>
         <FormGroup>
-          <Label htmlFor='username'>Username</Label>
+          <Label className='black-shadow' htmlFor='username'>
+            Username
+          </Label>
           <Input
             onChange={e => setUsername(e.target.value)}
             name='username'
             value={username}
+            placeholder='username'
           />
         </FormGroup>
         <FormGroup>
-          <Label htmlFor='password'>Password</Label>
+          <Label className='black-shadow' htmlFor='password'>
+            Password
+          </Label>
           <Input
             onChange={e => setPassword(e.target.value)}
             name='password'
             value={password}
+            placeholder='password'
           />
         </FormGroup>
-        <Button type='submit'>Login</Button>
+        <Button className='button-styles' type='submit'>
+          Login
+        </Button>
       </Form>
     </div>
   );

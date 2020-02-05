@@ -1,33 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Button } from 'reactstrap';
-
+import React from 'react';
+import { Container, Button } from 'reactstrap';
+import soundfile from '../../assets/dance.wav';
+import Sound from 'react-sound';
+import './landing.css';
 
 const LandingPage = props => {
-  // const playit = () => {
-  //   setTimeout(() => {
-  //     return (
-       
-  //     );
-  //   }, 500);
-  // };
-
   return (
     <div>
-      {/* {playit()} */}
-      
+
       <div className='row justify-content-center m-0 p-0'>
-        <h2>TEST LANDING PAGE</h2>
+        <h2 className='red-shadow'>Your Fate is at Hand!</h2>
       </div>
 
       <Container>
         <div className='row justify-content-center align-itmes-center'>
           <Button
-            className='button-styles'
+            className='button-styles begin'
             onClick={() => props.toggleLanding()}
           >
-            ENTER
+            BEGIN
           </Button>
         </div>
+        <Sound url={soundfile} playStatus={Sound.status.PLAYING} />
       </Container>
     </div>
   );

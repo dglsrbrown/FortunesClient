@@ -10,6 +10,8 @@ import {
   Button
 } from 'reactstrap';
 import APIURL from '../../helpers/environment';
+import soundfile from '../../assets/gong.wav';
+import Sound from 'react-sound';
 
 const SaveMyFortune = props => {
   const [fortune, setFortune] = useState('');
@@ -18,8 +20,12 @@ const SaveMyFortune = props => {
   const [notes, setNotes] = useState('');
 
   const [method, setMethod] = useState('POST');
-  // const [urlending, setURLending] = useState('');
   const [header, setHeader] = useState('Save a Fortune');
+  const [playing, setplaying] = useState('STOPPED');
+
+  const soundReset = () => {
+    setplaying('STOPPED');
+  };
 
   /****** SAVE OR UPDATE ******/
 
@@ -38,6 +44,7 @@ const SaveMyFortune = props => {
     }
   };
 
+  //fire fetch and update variables
   useEffect(() => {
     console.log(props.update);
     fetchMethod();
@@ -52,10 +59,11 @@ const SaveMyFortune = props => {
       method,
       'Update value: ',
       props.update
-    );
+    ); //Dynamically changing the fetch method and url
     fetch(`${APIURL}/fortunes/${props.urlending}`, {
       method: method,
       body: JSON.stringify({
+        //if user didn't fill out form it reverts to previous values stored in db when updating a fortune
         fortune: props.update && fortune == '' ? props.savedFortune : fortune,
         luckNumber:
           props.update && luckyNumber == ''
@@ -72,13 +80,14 @@ const SaveMyFortune = props => {
       .then(res => res.json())
       .then(fortuneData => {
         console.log(fortuneData);
-        setFortune('');
+        setFortune(''); //reseting values here and below
         setLuckNumber('');
         setClasstype('');
         setNotes('');
         props.fetchFortunes(); //fires another pull of user fortune list
-        setMethod('POST');
+        setMethod('POST'); //reseting after a dynamic fetch here and below
         setHeader('Save a Fortune');
+        setplaying('PLAYING');
         props.reset();
       });
   };
@@ -86,46 +95,49 @@ const SaveMyFortune = props => {
   return (
     <div>
       <header style={{ textAlign: 'center' }}>
-        <h3>{header}</h3>
+        <h3 className='black-shadow'>{header}</h3>
       </header>
-
+      {/* Form Field for Saving a Fortune */}
       <Container>
         <Row>
-          {/* md={{ size: 6, offset: 3 }} */}
           <Col>
             <Form onSubmit={handleSubmit}>
               <FormGroup>
-                <Label htmlFor='fortune'>Fortune</Label>
+                <Label className='label' htmlFor='fortune'>
+                  Fortune
+                </Label>
                 <Input
                   name='fortune'
                   value={fortune}
-                  placeholder={
-                    props.update ? props.savedFortune : 'Your Fortune'
-                  }
+                  placeholder={props.update ? props.savedFortune : 'Fortune?'}
                   onChange={e => setFortune(e.target.value)}
                 />
               </FormGroup>
               <FormGroup>
-                <Label htmlFor='luckyNumber'>Lucky Number</Label>
+                <Label className='label' htmlFor='luckyNumber'>
+                  Lucky Number
+                </Label>
                 <Input
                   name=''
                   value={luckyNumber}
-                  placeholder={props.update ? props.savedLuckyNumber : 'Lucky#'}
+                  placeholder={
+                    props.update ? props.savedLuckyNumber : 'Lucky#?'
+                  }
                   onChange={e => setLuckNumber(e.target.value)}
                 />
               </FormGroup>
               <FormGroup>
-                <Label htmlFor='classtype'>Select Type</Label>
+                <Label className='label' htmlFor='classtype'>
+                  Select Type
+                </Label>
                 <Input
+                  style={{ borderRadius: '20px' }}
                   className='input-primary'
-                  // style = {{background: "rgb(254, 247, 245, 0.4)" }}
                   type='select'
                   name='classtype'
                   value={classtype}
-                  // placeholder={props.update ? props.savedType : 'Fortuitous'}
                   onChange={e => setClasstype(e.target.value)}
                 >
-                  {/* disabled selected hidden - had this below after value='' but got warnings for it*/}
                   <option value=''>
                     {props.update ? props.savedType : 'Choose...'}
                   </option>
@@ -137,7 +149,9 @@ const SaveMyFortune = props => {
                 </Input>
               </FormGroup>
               <FormGroup>
-                <Label htmlFor='notes'>Notes</Label>
+                <Label className='label' htmlFor='notes'>
+                  Notes
+                </Label>
                 <Input
                   className='input-primary'
                   type='textarea'
@@ -147,10 +161,19 @@ const SaveMyFortune = props => {
                   onChange={e => setNotes(e.target.value)}
                 />
               </FormGroup>
-              <Button className= 'button-styles' type='submit'>Submit</Button>
+              <Button className='button-styles' type='submit'>
+                Submit
+              </Button>
             </Form>
           </Col>
         </Row>
+        <Sound
+          url={soundfile}
+          playStatus={Sound.status[playing]}
+          onFinishedPlaying={() => {
+            soundReset();
+          }}
+        />
       </Container>
     </div>
   );

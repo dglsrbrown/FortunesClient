@@ -1,27 +1,18 @@
 import React from 'react';
-// import Fortune from './OneFortune';
 import {
-  cardTitle,
-  Card,
-  CardBody,
+  
   CardTitle,
   CardText,
-  CardSubtitle,
-  CardTxt,
-  Button,
-  ButtonGroup
+  
 } from 'reactstrap';
 
 const FortunesList = props => {
-  // console.log(props);
   return (
     <div className='card align-itmes-center'>
-      {/* {console.log(props.fortunesToMap.id)} */}
-      <CardTitle className='m-auto'>{props.fortunesToMap.fortune}</CardTitle>
-      <CardText className='m-auto'>{props.fortunesToMap.luckNumber}</CardText>
-      <CardText className='m-auto'>{props.fortunesToMap.class}</CardText>
-      <CardText className='m-auto'>{props.fortunesToMap.notes}</CardText>
-      {/* <ButtonGroup > */}
+      <CardTitle className='m-auto about-text'>{props.fortunesToMap.fortune}</CardTitle>
+      <CardText className='m-auto about-text'>{props.fortunesToMap.luckNumber}</CardText>
+      <CardText className='m-auto about-text'>{props.fortunesToMap.class}</CardText>
+      <CardText className='m-auto about-text'>{props.fortunesToMap.notes}</CardText>
       <button
         className='card-button button-styles ml-auto mr-auto mb-1'
         href='#'
@@ -36,7 +27,6 @@ const FortunesList = props => {
       >
         Delete
       </button>
-      {/* </ButtonGroup> */}
     </div>
   );
 };

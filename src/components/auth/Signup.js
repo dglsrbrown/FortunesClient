@@ -60,25 +60,27 @@ const Signup = props => {
   return (
     <div className='signiup-root'>
       <div className='app-controls'>
-        <h1 className=' text'>
+        <h1 className='login-root black-shadow'>
           Sign Up<span id='PopoverFocus'> *</span>
         </h1>
       </div>
       <Form onSubmit={formValidation}>
         <FormGroup>
-          <Label htmlFor='username'>Username</Label>
+          <Label className= "black-shadow" htmlFor='username'>Username</Label>
           <Input
             onChange={e => setUsername(e.target.value)}
             name='username'
             value={username}
+            placeholder='username'
           />
         </FormGroup>
         <FormGroup>
-          <Label htmlFor='password'>Password</Label>
+          <Label className= "black-shadow" htmlFor='password'>Password</Label>
           <Input
             onChange={e => setPassword(e.target.value)}
             name='password'
             value={password}
+            placeholder='password'
           />
         </FormGroup>
         <Button className='button-styles' type='submit'>
@@ -91,8 +93,7 @@ const Signup = props => {
         placement='right'
         target='PopoverFocus'
       >
-        {/* <PopoverHeader className>Focus Trigger</PopoverHeader> */}
-        <PopoverBody className='black-trs' color ='gray'>
+        <PopoverBody style={{fontFamily: 'Quattrocento'}} color ='gray'>
           Username must be a minimum of 4 characters and have at least one number
           or symbol. Passwords must be a minimum of 5 characters.
         </PopoverBody>

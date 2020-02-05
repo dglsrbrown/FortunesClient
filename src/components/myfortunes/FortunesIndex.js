@@ -4,6 +4,7 @@ import SaveMyFortune from './SaveMyFortune';
 import FortunesList from './FortunesList';
 import APIURL from '../../helpers/environment';
 
+
 const FortuneIndex = props => {
   const [fortunes, setFortunes] = useState([]);
   const [update, setUpdate] = useState(false);
@@ -39,20 +40,15 @@ const FortuneIndex = props => {
   const fortuneMapper = () => {
     return fortunes.map((fortuneInfo, index) => {
       console.log("The mapped fortune's class: ", fortuneInfo.class);
-      // let currentCardBG;
-      // let currentclasses;
-      // if (fortuneInfo.class == 'Auspicious') {
-      //   currentCardBG = 'fortune-bg-1';
-      //   currentclasses = `${currentCardBG} cardName mb-4`;
-      // }
+    
       return (
-        <Card key={index} >
+        <Card className="mb-2"key={index} >
           <FortunesList
             fortunesToMap={fortuneInfo}
             deleteFortunes={deleteFortunes}
             updater={upDater}
-            // doit={doit}
           />
+
         </Card>
       );
     });
@@ -115,13 +111,8 @@ const FortuneIndex = props => {
             savedNote={savedNote}
           />
         </Col>
-        <Col md='8'>
-          {/* <FortunesList
-            fort={fortunes}
-            fetchFortunes={fetchFortunes}
-            token={props.token}
-          /> */}
-          {/* {update? (<Update token={props.token}/>) : {fortuneMapper}} */}
+        <Col md='6'>
+          
           {fortuneMapper()}
         </Col>
       </Row>
