@@ -31,9 +31,12 @@ const About = () => {
               and it leads to a slightly different result: he gets in an
               accident, but ends up only breaking his leg. He does not die after
               all! This is possible.&quot;
+              <footer className='blockquote-footer'>
+                Zen Master Seung Sahn
+              </footer>
             </p>
           </blockquote>
-          <footer className='blockquote-footer'>Zen Master Seung Sahn</footer>
+          <p> Thank you for visiting my site. Warm regards - Douglas Brown</p>
         </div>
       </div>
       <Sound url={soundfile} playStatus={Sound.status.PLAYING} />
