@@ -12,12 +12,10 @@ const Home = props => {
         </h5>
         <p>
           <strong>Fortune cookie fortunes</strong> are the proverbial dessert
-          after the cookie itself. At times a few fortunes are found with
-          uncanny accuracy. We invite you here to
-          <strong>
-            <u> save those fated fortunes </u>
-          </strong>
-          along with a few notes for future divination.
+          after the cookie itself.{' '}
+          <p>At times a few fortunes are found with uncanny accuracy.</p> We
+          invite you here to <strong> save those fated fortunes</strong> along
+          with a few notes for future divination.
         </p>
         <p>Here at Fortune Cookie Fortune your future is our business.</p>
         <p>
