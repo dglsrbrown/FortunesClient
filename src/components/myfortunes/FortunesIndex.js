@@ -4,7 +4,6 @@ import SaveMyFortune from './SaveMyFortune';
 import FortunesList from './FortunesList';
 import APIURL from '../../helpers/environment';
 
-
 const FortuneIndex = props => {
   const [fortunes, setFortunes] = useState([]);
   const [update, setUpdate] = useState(false);
@@ -36,19 +35,19 @@ const FortuneIndex = props => {
   }, []); //the empty array has it only called once
 
   /****** Display User Fortunes ******/
-
+  //fortuneMapper takes the argument passed from the fetchAll fortunes
+  //it then maps over each obj in the array and retuns the <FortunesList/> with the props sent to that component. That component returns the values displayed as JSX for each obj in the array.
   const fortuneMapper = () => {
     return fortunes.map((fortuneInfo, index) => {
       console.log("The mapped fortune's class: ", fortuneInfo.class);
-    
+
       return (
-        <Card className="mb-2"key={index} >
+        <Card className='mb-2' key={index}>
           <FortunesList
             fortunesToMap={fortuneInfo}
             deleteFortunes={deleteFortunes}
             updater={upDater}
           />
-
         </Card>
       );
     });
@@ -100,21 +99,19 @@ const FortuneIndex = props => {
       <Row>
         <Col md='4'>
           <SaveMyFortune
+            //all props sent down to the component
             fetchFortunes={fetchFortunes}
             token={props.token}
             urlending={urlending}
-            update={update}
+            update={update} //is update true
             reset={Reset}
-            savedFortune={savedFortune}
+            savedFortune={savedFortune} //saved value of current fortune
             savedLuckyNumber={savedLuckyNumber}
             savedType={savedType}
             savedNote={savedNote}
           />
         </Col>
-        <Col md='6'>
-          
-          {fortuneMapper()}
-        </Col>
+        <Col md='6'>{fortuneMapper()}</Col>
       </Row>
     </Container>
   );

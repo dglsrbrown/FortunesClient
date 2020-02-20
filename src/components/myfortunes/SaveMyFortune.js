@@ -64,6 +64,8 @@ const SaveMyFortune = props => {
       method: method,
       body: JSON.stringify({
         //if user didn't fill out form it reverts to previous values stored in db when updating a fortune
+        //the update props is passed as to if there is an active update. The savedFortune props is passed which would have the saved value of the fortune to update.
+        //in this case if update is true and there is no stored value in the input field assign the stored current value of the fortune. This prevents the user from overwriting the value in the db with and empty string.
         fortune: props.update && fortune == '' ? props.savedFortune : fortune,
         luckNumber:
           props.update && luckyNumber == ''

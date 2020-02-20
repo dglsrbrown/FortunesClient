@@ -6,7 +6,7 @@ const About = () => {
   return (
     <div className='about-bg p-3'>
       <div className='row justify-content-center'>
-        <div className='col-6 trans-bg-light text-center'>
+        <div className=' col-lg-6 col-md-6 col-sm-8 col-xs-10 trans-bg-light text-center'>
           <p>
             This site was created as a PERN stack exercise with some tongue and
             cheek. But let me leave you with some deeper thoughts about your

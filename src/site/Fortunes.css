@@ -62,8 +62,9 @@ body {
   /* font-size: 4rem; */
   position: absolute;
   width: 80%;
-  left: 10%;
-  bottom: 45%;
+  /* left: 10%; */
+  /* bottom: 45%; */
+  top: 25px;
   opacity: 1;
   /* color: #f0eba3; */
   animation-name: bottomFadeOut;

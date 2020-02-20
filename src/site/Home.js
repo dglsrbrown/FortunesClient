@@ -4,7 +4,7 @@ import './Home.css';
 const Home = props => {
   return (
     <div className='bg-home row justify-content-center '>
-      <div className='trans-bg col-6 text-center mh-100'>
+      <div className='trans-bg col-lg-6 col-md-6 col-sm-8 col-xs-10 text-center mh-100'>
         <h1>Welcome</h1>
         <h3 className='blinking'>Take Hold of Your Future!</h3>
         <h5>
